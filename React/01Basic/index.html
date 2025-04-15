@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <div id="buttonParent"></div>
+    <script>
+      let state = {
+        count: 0,
+      };
+
+      function BtnPress() {
+        state.count++;
+        ButtonRerender();
+      }
+
+      function onButtonPress() {
+        const btn = document.createElement("button");
+        btn.innerHTML = `Counter ${state.count}`;
+        btn.setAttribute("onClick", `BtnPress()`);
+        return btn;
+      }
+
+      function ButtonRerender() {
+        document.getElementById("buttonParent").innerHTML = "";
+        const component = onButtonPress(state.count);
+        document.getElementById("buttonParent").appendChild(component);
+      }
+
+      ButtonRerender();
+
+      //   function onButtonPress() {
+      //     state.count++;
+      //     buttonComponentReRender();
+      //   }
+
+      //   function buttonComponent(count) {
+      //     const button = document.createElement("button");
+      //     button.innerHTML = `Counter ${count}`;
+      //     button.setAttribute("onclick", `onButtonPress()`);
+      //     return button;
+      //   }
+
+      //   function buttonComponentReRender() {
+      //     document.getElementById("buttonParent").innerHTML = "";
+      //     const component = buttonComponent(state.count);
+      //     document.getElementById("buttonParent").appendChild(component);
+      //   }
+
+      //   buttonComponentReRender();
+    </script>
+  </body>
+</html>
