@@ -5,5 +5,6 @@ body {
 .toplink{
     color: gray;
     padding-left: 5px;
+    cursor: pointer;
 }
 
