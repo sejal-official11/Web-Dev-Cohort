@@ -75,7 +75,6 @@
 
 // setTimeoutPromisified(3000).then(callback);
 
-
 // function random(){
 
 // }
@@ -87,10 +86,35 @@
 // console.log(p);
 // p.then(callback);
 
+class Promise2 {
+  constructor(fn) {
+    this.fn = fn;
+    this.fn(() => {
+      this.resolve();
+    });
+  }
+  then(callback) {
+    this.resolve = callback;
+  }
+}
+
+function readFile(resolve) {
+  
+  setTimeout(() => {
+    console.log("callback setTimeout called");
+  }, 3000);
+}
+function setTimeoutPromisified() {
+  return new Promise2(readFile);
+}
 
 
+let p = setTimeoutPromisified();
 
+function callback(){
+    console.log("callback has been called");
+}
 
+p.then(callback);
 
-
-
+console.log(p);
