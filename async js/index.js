@@ -44,77 +44,40 @@
 // console.log(today.getFullYear());
 // console.log(today.getSeconds());
 
-// function logName() {
-//     console.log("Hello");
+
+
+
+
+
+// function doAsyncOp(resolve) {
+//   setTimeout(resolve, 3000);
+//   console.log("setTimeout called");
 // }
 
-// setTimeout(logName, 3000);
-
-// function callback(){
-//     console.log("Done");
+// function setTimeoutPromisified() {
+//   return new Promise(doAsyncOp);
 // }
 
-// let p = setTimeoutPromisified(3000).then(callback); // return object of promise class
-// console.log(p);
-
-// function setTimeoutPromisified(){
-//     let d = new Promise((res, resp) => (console.log("Hi")));
-//     return d;
-// }
-
-// promisified version of settimeout
-
-// function setTimeoutPromisified(ms) {
-//   let p = new Promise((resolve) => setTimeout(resolve, ms));
-//   return p;
-// }
-
+// let p = setTimeoutPromisified();
 // function callback() {
-//   console.log("3 seconds have passed");
+//   console.log("3 seconds have passed, callback called");
 // }
 
-// setTimeoutPromisified(3000).then(callback);
-
-// function random(){
-
-// }
-// function callback() {
-//     console.log("Hello");
-// }
-
-// let p = new Promise(random);
-// console.log(p);
 // p.then(callback);
 
-class Promise2 {
-  constructor(fn) {
-    this.fn = fn;
-    this.fn(() => {
-      this.resolve();
-    });
-  }
-  then(callback) {
-    this.resolve = callback;
-  }
-}
 
-function readFile(resolve) {
-  
-  setTimeout(() => {
-    console.log("callback setTimeout called");
-  }, 3000);
-}
-function setTimeoutPromisified() {
-  return new Promise2(readFile);
-}
+function promisified(resolve) {
+    let c = 0;
+    for(let i = 0; i < 1000000000; i++){
+        c++;
+    }
+    resolve();
 
-
-let p = setTimeoutPromisified();
+}
+const p = new Promise(promisified);
 
 function callback(){
-    console.log("callback has been called");
+    console.log("Callback called");
 }
 
 p.then(callback);
-
-console.log(p);
