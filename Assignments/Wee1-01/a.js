@@ -21,26 +21,10 @@
 
 // // setInterval(callback, 1000);
 // setTimeout(callback, 1000);
-function checkVowel(str){
-    if(str === 'a' || str === 'e' || str === 'i' || str === 'o' || str === 'u'){
-        return true;
-    }
-    else {
-        return false;
-    }
-}
 
 function countVowels(str){
-    let cnt = 0;
     const s1 = str.toLowerCase();
-    for(let i = 0; i < s1.length; i++){
-        if(checkVowel(s1[i])){
-            cnt++;
-        }
-    }
-    return cnt;
 
 }
 
-let count = countVowels("Appleeee");
-console.log(count);
+countVowels("Apple");
