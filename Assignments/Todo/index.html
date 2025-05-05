@@ -1,0 +1,17 @@
+<html>
+  <body id="body">
+    <h4>Todo 1</h4>
+    <h4>Todo 2</h4>
+    <h4>Todo 3</h4>
+    <h4>Todo 3</h4>
+    <button onclick="deleteRandomTodo()">Delete</button>
+  </body>
+
+  <script>
+    function deleteRandomTodo() {
+      const element = document.querySelector("h4");
+      const parentElement = element.parentNode;
+      parentElement.removeChild(element);
+    }
+  </script>
+</html>
