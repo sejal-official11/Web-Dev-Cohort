@@ -1,9 +1,18 @@
-function product() {
-      return 15*10;
-}
+// import chalk from "chalk";
 
-const ans = product(); 
 
-console.log(ans);
+// function product() {
+//       return 15*10;
+// }
+
+// const ans = product(); 
+
+// console.log(ans);
+
+
+
+const path = require("path");
+
+console.log(path.join(__dirname , "index.js"));
 
 
