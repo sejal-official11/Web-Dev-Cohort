@@ -20,7 +20,7 @@ const app = express();
 
 // // find kidneys
 // app.get("/", function (req, res) {
-//   const SejalKidneys = users[0].kidneys;
+//   const SejalK idneys = users[0].kidneys;
 //   const numberOfKidneys = SejalKidneys.length;
 //   let numberOfHealthyKidneys = 0;
 //   for (let i = 0; i < numberOfKidneys; i++) {
