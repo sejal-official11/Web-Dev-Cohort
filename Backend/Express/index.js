@@ -102,5 +102,13 @@ const app = express();
 //     })
 //   })
 // })
-// app.listen(3000);
+
+app.get('/', function(req, res) {
+    const a = req.query.a;
+    const b = req.query.b;
+    res.send("Hello i am adding the numbers");
+})
+
+
+app.listen(3000);
         

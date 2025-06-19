@@ -87,9 +87,19 @@
 // const text = str.split(2);
 // console.log(text);
 
-let text = "How are you doing today?";
-const myArray = text.split(3);
-console.log(myArray);
+// let text = "How are you doing today?";
+// const myArray = text.split(3);
+// console.log(myArray);
 // let word = myArray[1];
 // console.log(word);
+
+
+
+
+
+
+
+
+
+
 
