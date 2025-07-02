@@ -5,31 +5,12 @@ const app = express();
 
 app.use(express.json());
 
-const JWT_SECRET = "msijdfbweiufbjdviubsdsfj";
+const JWT_SECRET = "sejalusername";
 
 const users = [];
 
-app.post("/signin", function (req, res) {
-  const username = req.body.username;
-  const password = req.body.password;
-  let foundUser = null;
-
-  if (users.find((u) => u.username === username && u.password === password)) {
-    const token = jwt.sign(
-      {
-        username,
-      },
-      JWT_SECRET
-    );
-    res.json({
-      token: token,
-    });
-  } else {
-    res.json({
-      message: "Incorrect credentials",
-    });
-    return;
-  }
+app.get("/", function (req, res) {
+  res.sendFile(__dirname + "/public/index.html");
 });
 
 app.post("/signup", function (req, res) {
@@ -51,6 +32,30 @@ app.post("/signup", function (req, res) {
     message: "You are signed in",
   });
 });
+
+app.post("/signin", function (req, res) {
+  const username = req.body.username;
+  const password = req.body.password;
+  let foundUser = null;
+
+  if (users.find((u) => u.username === username && u.password === password)) {
+    const token = jwt.sign(
+      {
+        username
+      },
+      JWT_SECRET
+    );
+    res.json({
+      token: token,
+    });
+  } else {
+    res.json({
+      message: "Incorrect credentials",
+    });
+    return;
+  }
+});
+
 
 function auth(req, res, next) {
   const token = req.headers.token;
