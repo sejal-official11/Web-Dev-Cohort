@@ -27,17 +27,14 @@ app.get("/user/purchases", function(req, res) {
 })
 
 app.post("/course/purchase", function(req, res) {
-
     res.json({
         message: "courses endpoint"
     })
-
 });
-
 
 app.get("/courses", function(req, res) {
     res.json({
-        message: "courses";
+        message: "courses"
     })
 })
  
