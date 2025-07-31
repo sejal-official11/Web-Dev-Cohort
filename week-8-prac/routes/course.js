@@ -11,7 +11,8 @@ const courseRouter = Router();
     });
   });
 
-  courseRouter.get("/courses", function (req, res) {
+
+    Router.get("/preview", function (req, res) {
     res.json({
       message: "courses",
     });

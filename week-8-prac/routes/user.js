@@ -1,6 +1,4 @@
 const express = require("express");
-// const router = express.Router;
-
 const { Router } = require("express");
 
 const userRouter = Router();
@@ -21,7 +19,6 @@ userRouter.post("/signin", function (req, res) {
 });
 
 userRouter.get("/purchases", function(req, res) {
-    // you would expect that you can pay u money
     res.json({
         message: "These are the courses where you have enrolled"
 
@@ -31,7 +28,6 @@ userRouter.get("/purchases", function(req, res) {
 
 
 module.exports = {
-    // createUserRoutes: createUserRoutes 
     userRouter: userRouter
 }
 
