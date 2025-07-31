@@ -12,7 +12,7 @@ const courseRouter = Router();
   });
 
 
-    Router.get("/preview", function (req, res) {
+    courseRouter.get("/preview", function (req, res) {
     res.json({
       message: "courses",
     });
