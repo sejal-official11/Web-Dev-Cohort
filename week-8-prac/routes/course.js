@@ -14,7 +14,6 @@ const courseRouter = Router();
     });
   });
 
-
 module.exports = {
   courseRouter: courseRouter,
 };
