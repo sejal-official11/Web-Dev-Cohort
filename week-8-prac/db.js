@@ -1,10 +1,9 @@
 const mongoose = require("mongoose");
 console.log("connected to");
-mongoose.connect("mongodb+srv://admin:db%4011@cluster0.gzg3bzh.mongodb.net/")
+
 
 const Schema = mongoose.Schema;
 const ObjectId = mongoose.Types.ObjectId; 
-
 
 
 const userSchema = new Schema({
@@ -19,7 +18,6 @@ const adminSchema = new Schema({
     password: String,
     firstName: String,
     lastName: String
-
 })
 
 const courseSchema = new Schema({
@@ -28,7 +26,6 @@ const courseSchema = new Schema({
     price: Number,
     imageUrl: String,
     creatorId: ObjectId
-
 })
 
 const purchaseSchema = new Schema({
