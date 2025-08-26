@@ -5,6 +5,7 @@ const {adminModel} = require("../db")
 // adminRouter.use(adminMiddleware); // if user loged in tabhi ye route chale
 
 adminRouter.post("/signup", function(req, res) {
+    const email = req.body.username;
     res.json({
         message: "Admin signup endpoint"
     })

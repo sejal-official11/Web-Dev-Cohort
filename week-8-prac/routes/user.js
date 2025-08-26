@@ -7,9 +7,7 @@ const userRouter = Router();
 
 
   userRouter.post("/signup", function (req, res) {
-    res.json({
-      message: "signup endpoint",
-    });
+    
   });
 
   userRouter.post("/signin", function (req, res) {

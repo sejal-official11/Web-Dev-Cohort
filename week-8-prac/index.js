@@ -2,7 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const { userRouter } = require("./routes/user");
 const { courseRouter } = require("./routes/course");
-const {adminRouter} = require("./routes/admin")
+const { adminRouter } = require("./routes/admin")
 const app = express();
 
 
@@ -16,12 +16,13 @@ app.use("/api/v1/admin", adminRouter)
 
 async function main()
 {
-     await mongoose.connect("mongodb+srv://admin:db%4011@cluster0.gzg3bzh.mongodb.net/")
+     await mongoose.connect("mongodb+srv://admin:db%4011@cluster0.gzg3bzh.mongodb.net/coursera-database")
      app.listen(3000);
      console.log("listening on port 3000");
 }
 
 main()
    
+
 
 
