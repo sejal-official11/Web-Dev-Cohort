@@ -64,16 +64,14 @@ adminRouter.post("/course", adminMiddleware, async function (req, res) {
   });
 });
 
-adminRouter.put("/course", function (req, res) {
+adminRouter.put("/course",adminMiddleware, function (req, res) {
   res.json({
     message: "admin course endpoint",
   });
 });
 
-adminRouter.get("/course/bulk", function (req, res) {
-  res.json({
-    message: "admin course endpoint",
-  });
+adminRouter.get("/course/bulk", adminMiddleware, function (req, res) {
+  
 });
 
 module.exports = {
