@@ -109,7 +109,7 @@ adminRouter.get("/course/bulk", adminMiddleware, async function (req, res) {
       creatorId: adminId, // flyingbeast
     }
   );
-
+   
   res.json({
     message: "Course",
     courses
