@@ -1,8 +1,8 @@
 - initialize a new  Node.js project
 - Add Express, jsonwebtoken, mongoose to it as a dependency
 - Add route skeleton for user login, signup, purchase a course, sees all courses, the course
-- Add middlewares for user and admin auth
+- Define the schema for user, admin, course, purchase
 - Add a database (mongodb) , use dotenv to store the database connection string
-- Define the schema fr user, admin, course, purchase
-- Coplete the routes for user login, signup, purchase a acourse, see course (Extra points - use express routing to better structure and routes)
--  Create frontend 
+- Add middlewares for user and admin auth
+- Complete the routes for user login, signup, purchase a course, see course (Extra points - use express routing to better structure and routes)
+-  Create the  frontend 

@@ -1,8 +1,9 @@
 const { Router } = require("express");
 const adminRouter = Router();
-const { adminModel } = require("../db");
+const { adminModel, courseModel } = require("../db");
 const jwt = require("jsonwebtoken");
-const JWT_ADMIN_PASSWORD = "admin";
+const { JWT_ADMIN_PASSWORD } = require("../config");
+const { adminMiddleware } = require("../middleware/admin");
 
 // adminRouter.use(adminMiddleware); // if user loged in tabhi ye route chale
 
@@ -36,7 +37,7 @@ adminRouter.get("/signin", async function (req, res) {
     );
 
     res.json({
-      token: token
+      token: token,
     });
   } else {
     res.status(403).json({
@@ -45,9 +46,21 @@ adminRouter.get("/signin", async function (req, res) {
   }
 });
 
-adminRouter.post("/course", function (req, res) {
+adminRouter.post("/course", adminMiddleware, async function (req, res) {
+  const adminId = req.userId;
+  const course = ({ title, description, imageUrl, price } = req.body);
+
+  await courseModel.create({
+    title: title,
+    description: description,
+    imageUrl: imageUrl,
+    price: price,
+    creatorId: adminId,
+  });
+
   res.json({
-    message: "admin course endpoint",
+    message: "Course created",
+    courseId: course._id,
   });
 });
 
