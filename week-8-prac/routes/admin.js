@@ -48,7 +48,7 @@ adminRouter.get("/signin", async function (req, res) {
 
 adminRouter.post("/course", adminMiddleware, async function (req, res) {
   const adminId = req.userId;
-  const course = ({ title, description, imageUrl, price } = req.body);
+  const { title, description, imageUrl, price } = req.body;
 
   await courseModel.create({
     title: title,
@@ -64,14 +64,54 @@ adminRouter.post("/course", adminMiddleware, async function (req, res) {
   });
 });
 
-adminRouter.put("/course",adminMiddleware, function (req, res) {
+adminRouter.put("/course", adminMiddleware, async function (req, res) {
+  const adminId = req.userId;
+
+  const { title, description, imageUrl, price, courseId } = req.body;
+
+  // const course = await courseModel.findOne({
+  //   _id: courseId,
+  //   creatorId: adminId
+  // })
+
+  // if(!course){
+  //   res.status(402).json({
+
+  //   })
+  // }
+
+  const updatedCourse = await courseModel.updateOne(
+    {
+      _id: courseId, // flying beast id
+      creatorId: adminId, // flyingbeast
+    },
+    {
+      title: title,
+      description: description,
+      imageUrl: imageUrl,
+      price: price,
+    }
+  );
+
   res.json({
-    message: "admin course endpoint",
+    message: "COurse updated",
+    courseId: course._id,
   });
 });
 
-adminRouter.get("/course/bulk", adminMiddleware, function (req, res) {
-  
+adminRouter.get("/course/bulk", adminMiddleware, async function (req, res) {
+  const adminId = req.userId;
+
+  const courses =   await courseModel.find(
+    {
+      creatorId: adminId, // flyingbeast
+    }
+  );
+
+  res.json({
+    message: "Course",
+    courses
+  });
 });
 
 module.exports = {
