@@ -2,13 +2,12 @@
 // const Router = express.Router;
 
 const { Router } = require("express");
+const userRouter = Router();
 const { userModel } = require("../db");
 const jwt = require("jsonwebtoken");
-const {JWT_USER_PASSWORD} = require("../config ")
+const {JWT_USER_PASSWORD} = require("../config")
 const {userMiddleware} = require("../middleware/user")
 
-
-const userRouter = Router();
 
 userRouter.post("/signup", async function (req, res) {
   const email = req.body.email;

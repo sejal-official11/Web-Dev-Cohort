@@ -5,7 +5,7 @@ const {userMiddleware} = require("../middleware/user");
 const {purchaseModel, courseModel} = require("../db")
 
   courseRouter.post("/purchase", async function (req, res) {
-    const userId = req.userId;
+    const userId = req.body.userId;
     const courseId = req.body.courseId;
     //should check that the user has actually paid the price
     const purchase = await purchaseModel.create({
