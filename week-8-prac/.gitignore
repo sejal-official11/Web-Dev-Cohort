@@ -1,2 +1,4 @@
 node_modules
 .env
+
+mongodb+srv://admin:Admin@cluster0.gzg3bzh.mongodb.net/
