@@ -1,40 +1,58 @@
-import { useEffect, useState } from "react";
+import {useState, useEffect} from 'react'
 
-function App() {
-  const [count, setCount] = useState(0);
+function App(){
+  const [currentTab, setCurrentTab] = useState(1);
+  const [tabData, setTabData] = useState({});
+  const [loading, setLoading] = useState(true)
+  
 
-  function increasedCount(){
-    setCount(function(currVal) {
-      return currVal + 1;
-    })
+  const Timer = function(){
+    const [seconds, setSeconds] = useState(0);
+
+    useEffect(function(){
+      let clock = setInterval(function() {
+        console.log("from inside clock");
+        setSeconds(prev => prev + 1);
+      }, 1000)
+
+      return function(){
+        clearInterval(clock);
+      }
+    }, [])
+
+    return <div>{seconds} seconds</div>
   }
 
-  function decreaseCount(){
-    setCount(function(currVal) {
-      return currVal - 1;
-    })
-  }
-  useEffect(function(){
-    console.log("Hello")
-    setInterval(increasedCount, 1000)
-  }, [])
+  useEffect(function() {
+   // send a backend request to get data for this tab
+   setLoading(true)
+ fetch("https://jsonplaceholder.typicode.com/todos/" + currentTab).then(async res => {
+  const json = await res.json();
+  setTabData(json)
+  setLoading(false)
+ })
 
-  useEffect(function(){
-    console.log("The count has been updated to " + count);
-  }, [count])
+  }, [currentTab])
 
-
-
-  return (
+  return(
     <div>
-      {count}
+      <button onClick={function(){
+        setCurrentTab(1)
+      }} style={{color: currentTab == 1 ? "red" : "black"}}>Todo #1</button>
+      <button onClick={function(){
+        setCurrentTab(2)
+      }} style={{color: currentTab == 2 ? "red" : "black"}}>Todo #2</button>
+      <button onClick={function(){
+        setCurrentTab(3)
+      }} style={{color: currentTab == 3 ? "red" : "black"}}>Todo #3</button>
+      <button onClick={function(){
+        setCurrentTab(4)
+      }} style={{color: currentTab == 4 ? "red" : "black"}}>Todo #4</button>
+     
+     <br/>
+     {loading ? "Loading..." : tabData.title}
     </div>
   )
-
 }
 
-
-
-
-
-export default App;
+export default App
