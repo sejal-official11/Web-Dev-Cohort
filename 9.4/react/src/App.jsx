@@ -1,35 +1,41 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-
 function App() {
-  const [count, setCount] = useState(0)
+  // const [count, setCount] = useState(0)
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div style={{display: "flex"}}>
+      {/* <Card children={<div style={{color: "green"}}> 
+        What do you want to post
+        <input type={"text"} />
+      </div>} /> */}
+      <Card>
+        <div style={{color: "green"}}> 
+        What do you want to post
+        <input type={"text"} />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+      </Card>
+
+      <Card children={"hi there"} />
+    </div>
+  );
 }
 
-export default App
+function Card({ children }) {
+  return (
+    <span
+      style={{
+        background: "grey",
+        borderRadius: 10,
+        color: "white",
+        padding: 10,
+        margin: 10
+      }}
+    >
+
+      Upper topbar
+      {children}
+      Lower bottom footer
+    </span>
+  );
+}
+
+export default App;
