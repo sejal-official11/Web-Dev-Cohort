@@ -1,41 +1,22 @@
-function App() {
-  // const [count, setCount] = useState(0)
 
+const App = () => {
   return (
-    <div style={{display: "flex"}}>
-      {/* <Card children={<div style={{color: "green"}}> 
-        What do you want to post
-        <input type={"text"} />
-      </div>} /> */}
-      <Card>
-        <div style={{color: "green"}}> 
-        What do you want to post
-        <input type={"text"} />
-      </div>
-      </Card>
-
-      <Card children={"hi there"} />
+    <div>
+      {[
+        <Todo key={2} title={"Eat food"} done={false} />
+        ,
+        <Todo key={1} title={"Go to Gym"} done={false} />
+      ]}
     </div>
-  );
+  )
+  
 }
 
-function Card({ children }) {
-  return (
-    <span
-      style={{
-        background: "grey",
-        borderRadius: 10,
-        color: "white",
-        padding: 10,
-        margin: 10
-      }}
-    >
 
-      Upper topbar
-      {children}
-      Lower bottom footer
-    </span>
-  );
+function Todo({title, done}) {
+  return <div>
+    {title} - {done ? "Done" : "Not done"}
+  </div>
 }
 
 export default App;
