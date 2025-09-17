@@ -3,6 +3,7 @@ import { useState } from "react";
 //custom hook
 function useCounter() {
   const [count, setCount] = useState(0);
+  
   function increaseCount() {
     setCount((count) => count + 1);
   }
