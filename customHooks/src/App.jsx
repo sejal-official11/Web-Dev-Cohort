@@ -1,42 +1,17 @@
-import { useState } from "react";
+// import { useEffect, useState } fsrom "react";
+import { usePostTitle } from "./hooks/useFetch";
 
-//custom hook
-function useCounter() {
-  const [count, setCount] = useState(0);
+
+  function App() {
+  const postTitle = usePostTitle();
   
-  function increaseCount() {
-    setCount((count) => count + 1);
-  }
-
-  return {
-    count: count,
-    increaseCount: increaseCount,
-  };
-}
-
-
-function App() {
-
   return (
     <div>
-      {/* <button onClick={increaseCount}>Increase Count {count}</button> */}
-      <Counter />
-      <Counter />
-      <Counter />
-      <Counter />
-      <Counter />
+      {postTitle} HI there
     </div>
-  );
+  )
 }
 
 
-function Counter() {
-  const { count, increaseCount } = useCounter();
-return (
-  <div>
-    <button onClick={increaseCount}>Increase Count {count}</button>
-  </div>
-)
-}
 
 export default App;
