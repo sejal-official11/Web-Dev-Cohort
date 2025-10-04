@@ -6,7 +6,7 @@ function searchBackend() {
 
 function debouncedSearchedBackend() {
     //re-start a clock for 30 ms
-    clearTimeout(currentClock);
+    clearTimeout(currentClock); // purana timer hatao naya tier put karo
     currentClock = setTimeout(searchBackend, 30); // start a clock
 }
 
@@ -21,5 +21,4 @@ debouncedSearchedBackend()
 debouncedSearchedBackend()
 debouncedSearchedBackend()
 debouncedSearchedBackend()
-
 debouncedSearchedBackend();
