@@ -9,7 +9,7 @@ function App() {
   );
 }
 
-function Counter() {
+function Counter() { 
   return (
     <div>
       <CurrentCount />
