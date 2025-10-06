@@ -6,12 +6,18 @@ export const counterAtom = atom({
   key: "counter", //unique
 });
 
+
+
+
+
 export const evenSelector = selector({
   key: "isEvenSelector",
-
+  // does not have default value, it has getter
   get: function ({ get }) {
-    const currentCount = get(counterAtom);
+    const currentCount = get(counterAtom);  // this selector depend on this atom
     const isEven = (currentCount % 2 == 0);
     return isEven;
   },
+
 });
+
