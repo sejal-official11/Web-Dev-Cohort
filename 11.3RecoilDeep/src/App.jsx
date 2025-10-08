@@ -1,7 +1,4 @@
-
-
 import {RecoilRoot, atom, useRecoilValue} from 'recoil'
-
 
 const todoAtom = atom({
   key: "todoAtom",
@@ -11,7 +8,6 @@ const todoAtom = atom({
     description: "Hit the gym from 7-9"
   }
 })
-
 
 function App() {
   
@@ -24,6 +20,7 @@ function App() {
     </>
   )
 }
+
 
 function Todo(){
   const currentTodo = useRecoilValue(todoAtom);
