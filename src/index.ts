@@ -54,11 +54,8 @@
 // websocketHandler(greet);
 
 
-
-
-
-let greet = () => {
-  console.log("hi there");
+let greet = (name) => {
+  console.log("hi there " + name);
 }
 
-greet();
+greet("Sejal");
